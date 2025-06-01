@@ -57,7 +57,7 @@ var DBConfig = struct {
 }{
     Host:     "localhost",
     User:     "",
-    Password: "DmRVBOUNHCZuTJG3",
+    Password: "",
     Database: "",
     Port:     "",
 }
