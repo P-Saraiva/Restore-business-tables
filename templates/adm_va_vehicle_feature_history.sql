@@ -1,0 +1,13 @@
+CREATE TABLE oseadb.{table_name} (
+  ID bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  CHANNEL_ID varchar(50) NOT NULL COMMENT 'Channel ID',
+  CAPTURE_TIME bigint(20) NOT NULL COMMENT 'Capture time',
+  PLATE_IMAGE_URL varchar(200) DEFAULT NULL COMMENT 'Plate image URL',
+  VEHICLE_URL varchar(200) DEFAULT '' COMMENT 'Vehicle image URL',
+  PICTURE_URL varchar(200) DEFAULT NULL COMMENT 'Scene image URL',
+  FEATURE_VECTOR blob DEFAULT NULL COMMENT 'Feature vector value',
+  FEATURE_VERSION varchar(64) DEFAULT NULL COMMENT 'Algorithm version',
+  CODE varchar(50) DEFAULT NULL COMMENT 'Vehicle capture information CODE',
+  PRIMARY KEY (ID),
+  KEY IDX_VEHICLE_FEATURE_TIME (CAPTURE_TIME)
+) ENGINE=InnoDB AUTO_INCREMENT=2024092900000000001 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Vehicle capture feature record table';

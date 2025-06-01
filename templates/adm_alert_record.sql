@@ -1,0 +1,23 @@
+CREATE TABLE oseadb.{table_name} (
+  ID bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Auto-incrementing ID',
+  ALERT_TYPE varchar(255) NOT NULL COMMENT 'Alert type',
+  RELATIONAL_OPERATOR tinyint(3) NOT NULL COMMENT 'Alert rule operator: 1 = Greater than or equal to, 2 = Greater than, 3 = Less than or equal to, 4 = Less than',
+  THRESHOLD tinyint(3) NOT NULL COMMENT 'Threshold value',
+  THRESHOLD_TYPE tinyint(3) NOT NULL COMMENT 'Threshold type: 1 = Seconds, 2 = Minutes, 3 = Percentage',
+  ALERT_TIME bigint(20) NOT NULL COMMENT 'Alert timestamp',
+  ALERT_GRADE tinyint(3) NOT NULL COMMENT 'Alert level: 1 = High, 2 = Medium, 3 = Low',
+  HANDLE_TIME bigint(20) DEFAULT NULL COMMENT 'Handling timestamp',
+  HANDLE_STAT smallint(5) DEFAULT NULL COMMENT 'Handling status: 1 = Pending, 2 = In progress, 3 = Completed',
+  ALERT_CODE varchar(50) NOT NULL COMMENT 'Alert code',
+  RESOURCE_CODE varchar(90) NOT NULL COMMENT 'Resource identifier',
+  RESOURCE_NAME varchar(50) DEFAULT NULL COMMENT 'Resource name',
+  SOURCE_TYPE tinyint(3) NOT NULL COMMENT 'Alert source type: 1 = Server, 2 = Service, 3 = Device, 4 = Channel',
+  RULE_ID bigint(20) NOT NULL COMMENT 'Alert rule ID',
+  USER_ID bigint(20) unsigned NOT NULL COMMENT 'User ID',
+  RESOURCE_CATEGORY tinyint(4) NOT NULL COMMENT 'Resource category: 1 = Server, 3 = Device',
+  RESOURCE_TYPE int(10) NOT NULL COMMENT 'Resource type: 0 = Server, 1 = Encoder, 3 = Alarm host, 7 = Security check device, 5 = Checkpoint device, 8 = Access control device, 16 = Display screen, 21 = Video intercom, 50 = Elevator control, 34 = Emergency help, 43 = Radar device, 45 = Display control, 51 = Network device',
+  MEMO text DEFAULT NULL COMMENT 'Remarks',
+  PRIMARY KEY (ID),
+  KEY IDX_RECORD_ALERT_TIME (ALERT_TIME),
+  KEY IDX_RECORD_ALERT_RESOURCE_CODE (RESOURCE_CODE)
+) ENGINE=InnoDB AUTO_INCREMENT=2024092800000000001 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Operations and maintenance alert record table';
